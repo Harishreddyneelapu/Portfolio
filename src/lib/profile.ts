@@ -24,9 +24,9 @@ export type Article = {
 };
 
 export const profile = {
-  name: "Neelapu Harish Reddy",
+  name: "Harish Reddy Neelapu",
   title: "Front-End Developer",
-  location: "Vizianagaram, India",
+  location: "Bangalore, India",
   phone: "9701939346",
   email: "neelapuharishreddy1@gmail.com",
   links: {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Badge } from "@/components/Badge";
+import { GreetingRotator } from "@/components/GreetingRotator";
 import { LatestArticles } from "@/components/LatestArticles";
 import { Section } from "@/components/Section";
 import { profile } from "@/lib/profile";
@@ -17,7 +18,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b border-black/10 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-black/40">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold tracking-tight">
+            <p className="truncate text-sm font-extrabold tracking-tight">
               {profile.name}
             </p>
             <p className="truncate text-xs text-zinc-600 dark:text-zinc-400">
@@ -67,9 +68,18 @@ export default function Home() {
                 <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden />
                 Open to frontend opportunities
               </div>
-              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-                Building accessible, fast, and delightful web experiences.
-              </h1>
+              <div className="space-y-3">
+                <GreetingRotator />
+                <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+                  I’m {profile.name}.
+                </h1>
+                {/* <p className="text-lg font-medium text-zinc-700 dark:text-zinc-300">
+                  {profile.title} · {profile.location}
+                </p>
+                <p className="text-xl font-medium text-zinc-800 dark:text-zinc-200">
+                  Building accessible, fast, and delightful web experiences.
+                </p> */}
+              </div>
               <p className="max-w-2xl text-lg leading-8 text-zinc-700 dark:text-zinc-300">
                 {profile.summary}
               </p>
