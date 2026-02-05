@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { profile } from "@/lib/profile";
+import { getSiteUrl } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,16 +16,24 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Neelapu Harish Reddy | Frontend Developer",
-    template: "%s | Neelapu Harish Reddy",
+    default: `${profile.name} | Frontend Developer`,
+    template: `%s | ${profile.name}`,
   },
-  description:
-    "Frontend Developer building accessible, responsive, and performant web apps with React, Next.js, TypeScript, and Tailwind CSS.",
+  description: profile.summary,
+  metadataBase: getSiteUrl(),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Neelapu Harish Reddy | Frontend Developer",
-    description:
-      "Accessible, responsive, and performant web apps with React, Next.js, TypeScript, and Tailwind CSS.",
+    title: `${profile.name} | Frontend Developer`,
+    description: profile.summary,
     type: "website",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} | Frontend Developer`,
+    description: profile.summary,
   },
   robots: {
     index: true,

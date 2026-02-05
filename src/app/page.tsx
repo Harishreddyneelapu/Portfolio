@@ -2,12 +2,45 @@ import Link from "next/link";
 import { Badge } from "@/components/Badge";
 import { GreetingRotator } from "@/components/GreetingRotator";
 import { LatestArticles } from "@/components/LatestArticles";
+import { MobileNav } from "@/components/MobileNav";
 import { Section } from "@/components/Section";
 import { profile } from "@/lib/profile";
 
 export default function Home() {
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.SITE_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        name: profile.name,
+        jobTitle: profile.title,
+        email: `mailto:${profile.email}`,
+        telephone: profile.phone,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: profile.location,
+        },
+        sameAs: [profile.links.linkedin, profile.links.medium].filter(Boolean),
+      },
+      {
+        "@type": "WebSite",
+        name: `${profile.name} | Portfolio`,
+        url: siteUrl || undefined,
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-zinc-900 focus:shadow dark:focus:bg-zinc-900 dark:focus:text-zinc-50"
@@ -48,6 +81,16 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <MobileNav
+              items={[
+                { label: "About", href: "#about" },
+                { label: "Experience", href: "#experience" },
+                { label: "Projects", href: "#projects" },
+                { label: "Articles", href: "#articles" },
+                { label: "Skills", href: "#skills" },
+                { label: "Contact", href: "#contact" },
+              ]}
+            />
             <Link
               className="hidden rounded-full border border-black/10 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm transition hover:bg-zinc-50 dark:border-white/15 dark:bg-white/5 dark:text-zinc-50 dark:hover:bg-white/10 sm:inline-flex"
               href={profile.links.linkedin}
@@ -68,7 +111,7 @@ export default function Home() {
                 <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden />
                 Open to frontend opportunities
               </div>
-              <div className="space-y-3">
+              <div className="space-y-5">
                 <GreetingRotator />
                 <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
                   I’m {profile.name}.
