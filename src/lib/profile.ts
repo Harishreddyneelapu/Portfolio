@@ -9,7 +9,6 @@ export type Experience = {
 
 export type Project = {
   name: string;
-  timeframe: string;
   tagline: string;
   highlights: string[];
   tech: string[];
@@ -67,19 +66,17 @@ export const profile = {
   ] satisfies Experience[],
   projects: [
     {
-      name: "VOLTRON – THE MACHINE (Stagwell)",
-      timeframe: "Sep 2025 – Oct 2025",
+      name: "CollabFlow – Project Collaboration Dashboard",
       tagline:
-        "Unifying marketing technology, data, and AI across agencies with a high-performance, accessible UI.",
+        "A personal web app to manage projects, tasks, and real-time updates with an accessible, high-performance UI.",
       highlights: [
         "Built accessible, high-performance UI components using React, Next.js, TypeScript, and Tailwind CSS.",
-        "Integrated Workfront for real-time collaboration, project tracking, and notifications.",
+        "Implemented real-time updates, notifications, and activity timelines with a clean, scalable component architecture.",
       ],
       tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     },
     {
       name: "SMARTCHATAI – AI-Powered Chatbot Platform",
-      timeframe: "May 2025 – Aug 2025",
       tagline:
         "Real-time AI chat with RAG-based file interaction (PDF/CSV/JSON) and rich outputs.",
       highlights: [
@@ -95,13 +92,12 @@ export const profile = {
       ],
     },
     {
-      name: "PACIFY – Healthcare App (PWA)",
-      timeframe: "Sep 2024 – Apr 2025",
+      name: "CareBridge – Telehealth PWA",
       tagline:
-        "On-demand maternal and pediatric consultations with bilingual support and a mobile-first UX.",
+        "A personal PWA concept for on-demand consultations with a mobile-first UX and strong accessibility.",
       highlights: [
-        "Contributed to a PWA offering 24/7 video and audio consultations—no appointments or waiting.",
-        "Improved accessibility and mobile UX, supporting English and Spanish experiences.",
+        "Designed and implemented mobile-first flows with accessibility in mind (keyboard support, semantics, contrast).",
+        "Built reusable UI patterns and performance-focused layouts for a smooth, app-like experience.",
       ],
       tech: ["React", "Next.js", "PWA", "Accessibility"],
     },
