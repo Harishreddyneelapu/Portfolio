@@ -4,7 +4,6 @@ export type Experience = {
   location: string;
   start: string;
   end: string;
-  highlights: string[];
 };
 
 export type Project = {
@@ -24,7 +23,7 @@ export type Article = {
 
 export const profile = {
   name: "Harish Reddy Neelapu",
-  title: "Front-End Developer",
+  title: "Software Engineer",
   location: "Bangalore, India",
   phone: "9701939346",
   email: "neelapuharishreddy1@gmail.com",
@@ -33,80 +32,116 @@ export const profile = {
     medium: "https://medium.com/@neelapuharishreddy1",
   },
   summary:
-    "Front-End Developer with experience in React, Next.js, TypeScript, and Tailwind CSS. Focused on building responsive, accessible, and performant web applications. Skilled in secure authentication, real-time AI features, Zustand for state management, and modern UI libraries. Passionate about clean, maintainable code and user-centric design.",
+    "Software Engineer specializing in modern frontend ecosystems (React, Next.js, TypeScript) and AI-assisted application development. Transitioned from an engineering background to building high-performance, accessible web applications and RAG pipelines. Proven track record of delivering scalable enterprise features, from secure healthcare platforms to AI-powered collaboration tools.",
   skills: {
-    frontend: [
-      "Next.js",
-      "React",
-      "TypeScript",
+    languagesAndFrameworks: [
       "JavaScript",
+      "TypeScript",
+      "React.js",
+      "Next.js",
+      "Node.js",
       "Tailwind CSS",
-      "Web Accessibility (WCAG)",
     ],
-    uiAndDX: ["Storybook", "Radix UI", "Zustand", "Vercel"],
-    performanceAndAnalytics: [
-      "Web Performance (Lighthouse)",
-      "Google Analytics",
+    aiAndDataEngineering: [
+      "LLM Applications",
+      "RAG Pipelines",
+      "LangChain",
+      "OpenAI API",
     ],
-    backend: ["Node.js", "GraphQL", "PostgreSQL"],
+    databasesAndState: [
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Prisma",
+      "GraphQL",
+      "Zustand",
+    ],
+    toolsAndWorkflows: [
+      "Cursor",
+      "MCP",
+      "Git/GitHub",
+      "Storybook",
+      "Radix UI",
+      "Vercel",
+      "WCAG Accessibility",
+    ],
   },
   experience: [
     {
       company: "Code and Theory",
-      role: "Frontend Developer",
-      location: "Bangalore",
+      role: "Software Engineer",
+      location: "Bangalore, KA",
       start: "Sep 2024",
       end: "Present",
-      highlights: [
-        "Building accessible, responsive interfaces with React and Next.js, aligned with WCAG guidelines.",
-        "Integrating APIs and implementing analytics to track user events and interactions.",
-        "Optimizing web performance and UX using Lighthouse metrics and modern best practices.",
-      ],
     },
   ] satisfies Experience[],
   projects: [
     {
-      name: "CollabFlow – Project Collaboration Dashboard",
+      name: "PACIFY – Healthcare App (PWA)",
       tagline:
-        "A personal web app to manage projects, tasks, and real-time updates with an accessible, high-performance UI.",
+        "Healthcare platform serving 100K+ families with 24/7 maternal and pediatric virtual care.",
       highlights: [
-        "Built accessible, high-performance UI components using React, Next.js, TypeScript, and Tailwind CSS.",
-        "Implemented real-time updates, notifications, and activity timelines with a clean, scalable component architecture.",
+        "Implemented secure payment integrations and insurance renewal workflows.",
+        "Delivered bilingual (English and Spanish) experiences across video and audio consultations.",
+        "Integrated analytics and event tracking across onboarding, checkout, and consultation booking to surface patient engagement and platform performance insights.",
       ],
-      tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      tech: ["React", "Next.js", "PWA", "Analytics", "Accessibility"],
     },
     {
       name: "SMARTCHATAI – AI-Powered Chatbot Platform",
       tagline:
-        "Real-time AI chat with RAG-based file interaction (PDF/CSV/JSON) and rich outputs.",
+        "AI document chat with RAG-based question answering across PDF, TXT, and DOCX files.",
       highlights: [
-        "Built real-time conversation UX with file interaction (PDF, CSV, JSON) and rich outputs like charts, tables, graphs, and LaTeX.",
-        "Implemented secure auth with NextAuth + Google Sign-In and features like CRUD, document uploads, and group chats.",
+        "Built chat, document management, collaboration, and AI-assisted content discovery on Next.js, TypeScript, Express, Prisma, and PostgreSQL.",
+        "Implemented RAG pipelines with LangChain and OpenAI, returning rich responses with charts, tables, LaTeX, and interactive visualizations.",
+        "Designed secure authentication, user-scoped document permissions, chat groups, and threaded conversation APIs for persistent multi-user AI interactions.",
       ],
       tech: [
         "Next.js",
-        "React",
-        "NextAuth",
         "TypeScript",
-        "Tailwind CSS",
+        "Express",
+        "Prisma",
+        "PostgreSQL",
+        "LangChain",
+        "OpenAI",
       ],
     },
     {
-      name: "CareBridge – Telehealth PWA",
+      name: "VOLTRON – The Machine",
       tagline:
-        "A personal PWA concept for on-demand consultations with a mobile-first UX and strong accessibility.",
+        "AI-powered collaboration platform unifying project management, real-time AI chat, and multi-tenant administration.",
       highlights: [
-        "Designed and implemented mobile-first flows with accessibility in mind (keyboard support, semantics, contrast).",
-        "Built reusable UI patterns and performance-focused layouts for a smooth, app-like experience.",
+        "Architected and deployed an enterprise platform spanning 60+ routes, with Workfront-backed project management in one centralized workspace.",
+        "Consolidated portfolios, tasks, documents, and specialized AI agents to reduce context-switching across content creation and project delivery.",
+        "Designed a UI library of 25 reusable React components for design-system consistency and faster feature development.",
       ],
-      tech: ["React", "Next.js", "PWA", "Accessibility"],
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Workfront", "AI Agents"],
+    },
+    {
+      name: "ICF Corporate Website",
+      tagline:
+        "Optimizely CMS-driven corporate site with type-safe content delivery and on-page editing.",
+      highlights: [
+        "Delivered 65+ Optimizely CMS blocks and 20+ page types using GraphQL and codegen.",
+        "Built accessible UI with Storybook and Vitest, publish webhooks for cache revalidation, and Marketo/Wistia integrations; deployed on Vercel with Lighthouse-driven performance practices.",
+        "Improved accessibility compliance across 85 content components and page experiences through automated testing and WCAG-aligned implementation.",
+      ],
+      tech: [
+        "Next.js",
+        "TypeScript",
+        "GraphQL",
+        "Optimizely",
+        "Storybook",
+        "Vitest",
+        "Vercel",
+      ],
     },
   ] satisfies Project[],
   education: {
     school: "RK College of Engineering",
     degree: "Bachelor of Engineering (Mechanical Engineering)",
     location: "Vijayawada, Andhra Pradesh",
-    timeframe: "Jul 2019 – Apr 2023",
+    timeframe: "Jun 2019 – Apr 2023",
     gpa: "7.52/10.0",
   },
   additional: [

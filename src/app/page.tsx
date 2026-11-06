@@ -109,7 +109,7 @@ export default function Home() {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1.5 text-sm font-medium text-zinc-800 shadow-sm dark:border-white/15 dark:bg-white/5 dark:text-zinc-200">
                 <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden />
-                Open to frontend opportunities
+                Open to software engineering opportunities
               </div>
               <div className="space-y-5">
                 <GreetingRotator />
@@ -160,6 +160,16 @@ export default function Home() {
                   <dd className="font-medium">{profile.title}</dd>
                 </div>
                 <div>
+                  <dt className="text-zinc-600 dark:text-zinc-400">Experience</dt>
+                  <dd className="font-medium">
+                    {profile.experience[0].company}
+                    <span className="block text-zinc-600 dark:text-zinc-400">
+                      {profile.experience[0].start} –{" "}
+                      {profile.experience[0].end}
+                    </span>
+                  </dd>
+                </div>
+                <div>
                   <dt className="text-zinc-600 dark:text-zinc-400">Location</dt>
                   <dd className="font-medium">{profile.location}</dd>
                 </div>
@@ -195,26 +205,21 @@ export default function Home() {
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
               <p>
-                I’m a frontend developer who cares about{" "}
+                I’m a software engineer specializing in modern frontend
+                ecosystems (React, Next.js, TypeScript) and{" "}
                 <span className="font-medium text-zinc-900 dark:text-zinc-50">
-                  accessibility
+                  AI-assisted application development
                 </span>
-                ,{" "}
-                <span className="font-medium text-zinc-900 dark:text-zinc-50">
-                  performance
-                </span>
-                , and{" "}
-                <span className="font-medium text-zinc-900 dark:text-zinc-50">
-                  maintainable UI systems
-                </span>
-                . I build product interfaces with React/Next.js, TypeScript, and
-                Tailwind CSS—shipping features that are easy to use and easy to
-                evolve.
+                . I moved into software from a mechanical engineering
+                background, and now build high-performance, accessible web
+                applications and RAG pipelines.
               </p>
               <p>
-                Recently, I’ve worked on secure authentication, real-time AI
-                experiences, event analytics, and component-driven development
-                using tools like Zustand, Storybook, and modern UI primitives.
+                Recently, I’ve built RAG pipelines with LangChain and OpenAI, a
+                60+ route AI collaboration platform, secure healthcare payment
+                flows, and a 65+ block CMS-driven corporate site—with a
+                background in mechanical engineering that shaped how I approach
+                systems.
               </p>
             </div>
             <div className="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5">
@@ -222,10 +227,10 @@ export default function Home() {
                 What I optimize for
               </h3>
               <ul className="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-                <li>Accessible UI patterns (WCAG) and keyboard-first UX</li>
-                <li>Performance and Core Web Vitals (Lighthouse-driven)</li>
-                <li>Reusable components and clean architecture</li>
-                <li>Great developer experience and consistent design systems</li>
+                <li>Accessible, WCAG-aligned UI backed by automated testing</li>
+                <li>Performance through Lighthouse-driven practices</li>
+                <li>Reusable component libraries and design-system consistency</li>
+                <li>Type-safe, scalable delivery from healthcare platforms to AI tools</li>
               </ul>
             </div>
           </div>
@@ -253,11 +258,20 @@ export default function Home() {
                     {exp.start} — {exp.end}
                   </p>
                 </header>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
-                  {exp.highlights.map((h) => (
-                    <li key={h}>{h}</li>
+                <div className="mt-5 space-y-5">
+                  {profile.projects.map((p) => (
+                    <div key={p.name}>
+                      <h4 className="text-sm font-semibold tracking-tight">
+                        {p.name}
+                      </h4>
+                      <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
+                        {p.highlights.map((h) => (
+                          <li key={h}>{h}</li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </article>
             ))}
           </div>
@@ -280,11 +294,6 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
                   {p.tagline}
                 </p>
-                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
-                  {p.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <Badge key={t}>{t}</Badge>
@@ -308,42 +317,38 @@ export default function Home() {
 
         <Section id="skills" title="Skills" eyebrow="Tools I use">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5">
-              <h3 className="text-sm font-semibold tracking-tight">Frontend</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {profile.skills.frontend.map((s) => (
-                  <Badge key={s}>{s}</Badge>
-                ))}
+            {[
+              {
+                title: "Languages & frameworks",
+                items: profile.skills.languagesAndFrameworks,
+              },
+              {
+                title: "AI & data engineering",
+                items: profile.skills.aiAndDataEngineering,
+              },
+              {
+                title: "Databases & state management",
+                items: profile.skills.databasesAndState,
+              },
+              {
+                title: "Tools & developer workflows",
+                items: profile.skills.toolsAndWorkflows,
+              },
+            ].map((group) => (
+              <div
+                key={group.title}
+                className="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5"
+              >
+                <h3 className="text-sm font-semibold tracking-tight">
+                  {group.title}
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {group.items.map((s) => (
+                    <Badge key={s}>{s}</Badge>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5">
-              <h3 className="text-sm font-semibold tracking-tight">
-                UI libraries & state
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {profile.skills.uiAndDX.map((s) => (
-                  <Badge key={s}>{s}</Badge>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5">
-              <h3 className="text-sm font-semibold tracking-tight">
-                Performance & analytics
-              </h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {profile.skills.performanceAndAnalytics.map((s) => (
-                  <Badge key={s}>{s}</Badge>
-                ))}
-              </div>
-            </div>
-            <div className="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5">
-              <h3 className="text-sm font-semibold tracking-tight">Backend</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {profile.skills.backend.map((s) => (
-                  <Badge key={s}>{s}</Badge>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </Section>
 

@@ -26,7 +26,7 @@ export default function OpenGraphImage() {
           {profile.name}
         </div>
         <div style={{ fontSize: 30, opacity: 0.9, marginTop: 16 }}>
-          Front-End Developer · React · Next.js · TypeScript
+          Software Engineer · React · Next.js · AI
         </div>
         <div style={{ fontSize: 22, opacity: 0.8, marginTop: 22, maxWidth: 920 }}>
           {profile.summary}

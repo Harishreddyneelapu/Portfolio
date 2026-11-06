@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${profile.name} | Frontend Developer`,
+    default: `${profile.name} | Software Engineer`,
     template: `%s | ${profile.name}`,
   },
   description: profile.summary,
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: `${profile.name} | Frontend Developer`,
+    title: `${profile.name} | Software Engineer`,
     description: profile.summary,
     type: "website",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | Frontend Developer`,
+    title: `${profile.name} | Software Engineer`,
     description: profile.summary,
   },
   robots: {
