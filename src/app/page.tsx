@@ -3,6 +3,8 @@ import { Badge } from "@/components/Badge";
 import { GreetingRotator } from "@/components/GreetingRotator";
 import { LatestArticles } from "@/components/LatestArticles";
 import { MobileNav } from "@/components/MobileNav";
+import { MotionProvider, ScrollProgress, Stagger, StaggerItem } from "@/components/Motion";
+import { SectionDock } from "@/components/SectionDock";
 import { Section } from "@/components/Section";
 import { profile } from "@/lib/profile";
 
@@ -36,7 +38,10 @@ export default function Home() {
   };
 
   return (
+    <MotionProvider>
     <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-black dark:text-zinc-50">
+      <ScrollProgress />
+      <SectionDock />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -280,10 +285,10 @@ export default function Home() {
         <div className="h-px w-full bg-black/10 dark:bg-white/10" aria-hidden />
 
         <Section id="projects" title="Projects" eyebrow="Selected work">
-          <div className="grid gap-6 lg:grid-cols-2">
+          <Stagger className="grid gap-6 lg:grid-cols-2">
             {profile.projects.map((p) => (
+              <StaggerItem key={p.name}>
               <article
-                key={p.name}
                 className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/15 dark:bg-white/5"
               >
                 <header className="space-y-1">
@@ -300,8 +305,9 @@ export default function Home() {
                   ))}
                 </div>
               </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Section>
 
         <div className="h-px w-full bg-black/10 dark:bg-white/10" aria-hidden />
@@ -316,7 +322,7 @@ export default function Home() {
         <div className="h-px w-full bg-black/10 dark:bg-white/10" aria-hidden />
 
         <Section id="skills" title="Skills" eyebrow="Tools I use">
-          <div className="grid gap-6 lg:grid-cols-2">
+          <Stagger className="grid gap-6 lg:grid-cols-2">
             {[
               {
                 title: "Languages & frameworks",
@@ -335,10 +341,8 @@ export default function Home() {
                 items: profile.skills.toolsAndWorkflows,
               },
             ].map((group) => (
-              <div
-                key={group.title}
-                className="rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5"
-              >
+              <StaggerItem key={group.title}>
+              <div className="h-full rounded-2xl border border-black/10 bg-white p-6 dark:border-white/15 dark:bg-white/5">
                 <h3 className="text-sm font-semibold tracking-tight">
                   {group.title}
                 </h3>
@@ -348,8 +352,9 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </Section>
 
         <div className="h-px w-full bg-black/10 dark:bg-white/10" aria-hidden />
@@ -472,5 +477,6 @@ export default function Home() {
         </footer>
       </main>
     </div>
+    </MotionProvider>
   );
 }

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Reveal } from "@/components/Motion";
 
 export function Section({
   id,
@@ -23,7 +24,7 @@ export function Section({
           {title}
         </h2>
       </div>
-      {children}
+      <Reveal>{children}</Reveal>
     </section>
   );
 }
