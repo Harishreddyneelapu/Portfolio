@@ -128,13 +128,13 @@ export function GreetingRotator({
     : active.text.slice(0, subLen) || "\u00A0";
 
   return (
-    <div className="inline-flex items-center gap-2">
+    <div className="inline-flex select-none items-center gap-2">
       {/* <span className="inline-flex h-6 items-center rounded-full border border-black/10 bg-white px-2 text-xs font-semibold tracking-wide text-zinc-700 shadow-sm dark:border-white/15 dark:bg-white/5 dark:text-zinc-200">
         Greeting
       </span> */}
       <span
         className={[
-          "text-7xl font-extralight text-zinc-700 dark:text-zinc-300 sm:text-6xl lg:text-8xl",
+          "font-mono text-5xl font-light text-zinc-600 dark:text-zinc-400 sm:text-6xl",
           reduced ? "" : "transition-all duration-200 ease-out",
         ].join(" ")}
       >

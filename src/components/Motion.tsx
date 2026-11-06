@@ -1,12 +1,20 @@
 "use client";
 
 import * as React from "react";
-import { MotionConfig, motion, useScroll, useSpring } from "motion/react";
+import { LazyMotion, MotionConfig } from "motion/react";
+import * as m from "motion/react-m";
+
+// domAnimation is loaded after first paint, keeping it off the critical path.
+const loadFeatures = () => import("motion/react").then((mod) => mod.domAnimation);
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function MotionProvider({ children }: { children: React.ReactNode }) {
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
+  return (
+    <LazyMotion features={loadFeatures} strict>
+      <MotionConfig reducedMotion="user">{children}</MotionConfig>
+    </LazyMotion>
+  );
 }
 
 export function Reveal({
@@ -19,7 +27,7 @@ export function Reveal({
   className?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +35,7 @@ export function Reveal({
       transition={{ duration: 0.6, ease, delay }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -48,7 +56,7 @@ export function Stagger({
   className?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       className={className}
       variants={group}
       initial="hidden"
@@ -56,7 +64,7 @@ export function Stagger({
       viewport={{ once: true, amount: 0.1 }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -68,20 +76,8 @@ export function StaggerItem({
   className?: string;
 }) {
   return (
-    <motion.div className={className} variants={item}>
+    <m.div className={className} variants={item}>
       {children}
-    </motion.div>
-  );
-}
-
-export function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
-  return (
-    <motion.div
-      aria-hidden
-      className="fixed inset-x-0 top-0 z-50 h-0.5 origin-left bg-zinc-900 dark:bg-white"
-      style={{ scaleX }}
-    />
+    </m.div>
   );
 }

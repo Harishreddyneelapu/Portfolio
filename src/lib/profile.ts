@@ -4,6 +4,7 @@ export type Experience = {
   location: string;
   start: string;
   end: string;
+  highlights: string[];
 };
 
 export type Project = {
@@ -25,14 +26,26 @@ export const profile = {
   name: "Harish Reddy Neelapu",
   title: "Software Engineer",
   location: "Bangalore, India",
+  metaDescription:
+    "Software Engineer in Bangalore building accessible React and Next.js web apps and AI-powered RAG products. Portfolio, experience and projects.",
+  tagline: "Transforming complex problems into simple, accessible, AI-powered software.",
+  taglineShort: "Simple, accessible, AI-powered software.",
+  focus: "Frontend & AI apps",
   phone: "9701939346",
   email: "neelapuharishreddy1@gmail.com",
   links: {
+    github: "https://github.com/Harishreddyneelapu",
     linkedin: "https://www.linkedin.com/in/nhr1/",
     medium: "https://medium.com/@neelapuharishreddy1",
   },
   summary:
     "Software Engineer specializing in modern frontend ecosystems (React, Next.js, TypeScript) and AI-assisted application development. Transitioned from an engineering background to building high-performance, accessible web applications and RAG pipelines. Proven track record of delivering scalable enterprise features, from secure healthcare platforms to AI-powered collaboration tools.",
+  stats: [
+    { value: 100, suffix: "K+", label: "Families served on Pacify" },
+    { value: 60, suffix: "+", label: "Routes in the Voltron platform" },
+    { value: 65, suffix: "+", label: "Optimizely CMS blocks delivered" },
+    { value: 85, suffix: "", label: "Components made WCAG-aligned" },
+  ],
   skills: {
     languagesAndFrameworks: [
       "JavaScript",
@@ -70,9 +83,16 @@ export const profile = {
     {
       company: "Code and Theory",
       role: "Software Engineer",
-      location: "Bangalore, KA",
+      location: "Bengaluru · Remote",
       start: "Sep 2024",
       end: "Present",
+      highlights: [
+        "Developed scalable, accessible web applications with React, Next.js, TypeScript, GraphQL, and Tailwind CSS, delivering WCAG-aligned experiences and 90+ Lighthouse performance scores.",
+        "Established AI-assisted development workflows using Cursor and Figma MCP, cutting average development time per feature from ~2 days to ~1 day (about 50%) and speeding up reusable UI implementation.",
+        "Shipped enterprise features across healthcare, AI chat, collaboration, and corporate CMS platforms.",
+        "Delivered 65+ Optimizely CMS components and 20+ page templates using Storybook, GraphQL Codegen, and a reusable component architecture.",
+        "Built AI-powered applications with Next.js, Express, Prisma, PostgreSQL, LangChain, and OpenAI, implementing RAG pipelines for document-based question answering.",
+      ],
     },
   ] satisfies Experience[],
   projects: [

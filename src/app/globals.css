@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 :root {
+  --accent: #0d9488;
+  --on-accent: #09090b;
+  --ink: #09090b;
   --primary: #18181b;
   --primary-foreground: #fafafa;
   --secondary: #f4f4f5;
@@ -21,6 +24,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
@@ -36,6 +42,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --accent: #2dd4bf;
+    --on-accent: #09090b;
+    --ink: #fafafa;
     --primary: #fafafa;
     --primary-foreground: #18181b;
     --secondary: #27272a;
@@ -57,6 +66,16 @@ body {
   color: var(--foreground);
 }
 
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+  -webkit-text-fill-color: var(--on-accent);
+}
+::-moz-selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -75,3 +94,61 @@ a {
 }
 
 
+
+/* ---- hero: spotlight name ---- */
+.spotlight-overlay {
+  color: transparent;
+  background-image: radial-gradient(260px circle at var(--sx, -999px) var(--sy, -999px), var(--accent), transparent 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ---- marquee ---- */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-track {
+  animation: marquee 45s linear infinite;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* hero entrance: pure CSS so it never waits on JS hydration (keeps LCP fast) */
+.hero-in {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
