@@ -109,10 +109,10 @@ export function Hero() {
         </div>
 
         <p
-          className="hero-in mt-7 whitespace-nowrap text-[clamp(0.875rem,4.4vw,1.125rem)] text-zinc-600 dark:text-zinc-400 md:text-xl"
+          className="hero-in mt-7 max-w-full text-balance text-[clamp(0.875rem,4.2vw,1.125rem)] text-zinc-600 dark:text-zinc-400 md:whitespace-nowrap md:text-xl"
           style={{ "--i": 3 } as React.CSSProperties}
         >
-          <span className="md:hidden">{profile.taglineShort}</span>
+          <span className="md:hidden">{profile.taglineShort.replace(/-/g, "\u2011")}</span>
           <span className="hidden md:inline">{profile.tagline}</span>
         </p>
 

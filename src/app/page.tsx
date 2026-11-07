@@ -235,7 +235,7 @@ export default function Home() {
               href={`mailto:${profile.email}?subject=Opportunity`}
               className="group mt-6 inline-flex flex-wrap items-baseline gap-x-3 text-[clamp(1.5rem,4.5vw,2.75rem)] font-semibold tracking-tight"
             >
-              <span className="bg-linear-to-r from-accent to-accent bg-size-[0%_2px] bg-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-size-[100%_2px]">
+              <span className="[overflow-wrap:anywhere] bg-linear-to-r from-accent to-accent bg-size-[0%_2px] bg-bottom bg-no-repeat transition-[background-size] duration-500 group-hover:bg-size-[100%_2px]">
                 {profile.email}
               </span>
               <span
