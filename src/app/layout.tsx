@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Analytics, GtmNoScript } from "@/components/Analytics";
+import { Analytics } from "@vercel/analytics/next";
 import { profile } from "@/lib/profile";
 import { getSiteUrl } from "@/lib/site";
 
@@ -57,9 +57,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GtmNoScript />
         {children}
-        <Analytics />
+        {/* Only on Vercel: the script is served from /_vercel/insights, which does not exist locally. */}
+        {process.env.VERCEL ? <Analytics /> : null}
       </body>
     </html>
   );

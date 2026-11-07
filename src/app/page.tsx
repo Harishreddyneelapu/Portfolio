@@ -288,12 +288,7 @@ export default function Home() {
               <p>
                 © {new Date().getFullYear()} {profile.name}. All rights reserved.
               </p>
-              <p className="flex gap-4 text-zinc-600 dark:text-zinc-400">
-                <Link className="hover:text-accent" href="/privacy">
-                  Privacy
-                </Link>
-                <span>Built with Next.js, TypeScript, and Tailwind CSS.</span>
-              </p>
+              <p>Built with Next.js, TypeScript, and Tailwind CSS.</p>
             </div>
           </footer>
         </main>
