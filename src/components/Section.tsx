@@ -33,10 +33,9 @@ export function Section({
             >
               <span
                 aria-hidden
-                className="text-4xl font-semibold leading-none text-black/15 dark:text-white/15 lg:text-6xl"
-              >
-                {num}
-              </span>
+                data-num={num}
+                className="text-4xl font-semibold leading-none text-black/15 before:content-[attr(data-num)] dark:text-white/15 lg:text-6xl"
+              />
               <span className="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600 dark:text-zinc-400">
                 {title}
               </span>

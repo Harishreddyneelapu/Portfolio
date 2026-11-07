@@ -130,9 +130,9 @@ export default function Home() {
                 </p>
                 <h3 className="mt-1.5 text-base font-medium">
                   {exp.role}
-                  <span className="text-zinc-500"> · </span>
+                  <span className="text-zinc-500 dark:text-zinc-400"> · </span>
                   {exp.company}
-                  <span className="text-zinc-500"> · {exp.location}</span>
+                  <span className="text-zinc-500 dark:text-zinc-400"> · {exp.location}</span>
                 </h3>
 
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
@@ -247,7 +247,7 @@ export default function Home() {
             </a>
             <dl className="mt-10 flex flex-wrap gap-x-12 gap-y-5 text-sm">
               <div>
-                <dt className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-zinc-500">Phone</dt>
+                <dt className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">Phone</dt>
                 <dd className="mt-1.5">
                   <a className="hover:text-accent" href={`tel:${profile.phone}`}>
                     {profile.phone}
@@ -255,7 +255,7 @@ export default function Home() {
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-zinc-500">GitHub</dt>
+                <dt className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">GitHub</dt>
                 <dd className="mt-1.5">
                   <Link
                     className="hover:text-accent"
@@ -268,7 +268,7 @@ export default function Home() {
                 </dd>
               </div>
               <div>
-                <dt className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-zinc-500">LinkedIn</dt>
+                <dt className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">LinkedIn</dt>
                 <dd className="mt-1.5">
                   <Link
                     className="hover:text-accent"

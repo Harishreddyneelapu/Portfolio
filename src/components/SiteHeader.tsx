@@ -90,7 +90,7 @@ export function SiteHeader({ name, items }: { name: string; items: NavItem[] }) 
                 aria-current={active === i.href ? "true" : undefined}
                 className={`font-mono text-xs uppercase tracking-wider transition-colors ${
                   active === i.href
-                    ? "text-accent"
+                    ? "text-teal-700 dark:text-accent"
                     : "text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white"
                 }`}
               >
@@ -145,7 +145,7 @@ export function SiteHeader({ name, items }: { name: string; items: NavItem[] }) 
                 open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
               }`}
             >
-              <span className="font-mono text-xs text-zinc-500">0{idx + 1}</span>
+              <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400">0{idx + 1}</span>
               <span className="text-[clamp(2.25rem,11vw,3.75rem)] font-semibold leading-none tracking-tight">
                 {i.label}
               </span>

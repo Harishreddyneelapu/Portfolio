@@ -190,7 +190,7 @@ export function ProjectCover({ seed, index }: { seed: string; index: number }) {
       className="relative h-44 overflow-hidden border-b border-black/10 bg-zinc-100/60 dark:border-white/10 dark:bg-white/[0.03]"
     >
       <canvas ref={ref} className="absolute inset-0 h-full w-full" />
-      <span className="absolute left-5 top-4 font-mono text-xs text-zinc-500">
+      <span className="absolute left-5 top-4 font-mono text-xs text-zinc-500 dark:text-zinc-400">
         {String(index + 1).padStart(2, "0")}
       </span>
     </div>
