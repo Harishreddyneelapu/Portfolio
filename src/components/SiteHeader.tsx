@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 type NavItem = { label: string; href: string };
 
@@ -68,7 +69,8 @@ export function SiteHeader({ name, items }: { name: string; items: NavItem[] }) 
         <div
           ref={bar}
           aria-hidden
-          className="absolute left-0 top-0 h-px w-full origin-left scale-x-0 bg-accent"
+          style={{ transform: "scaleX(0)" }}
+          className="absolute left-0 top-0 h-0.5 w-full origin-left bg-accent will-change-transform"
         />
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8 lg:px-12">
           <a
@@ -79,6 +81,7 @@ export function SiteHeader({ name, items }: { name: string; items: NavItem[] }) 
             {name}
           </a>
 
+          <div className="flex items-center gap-4 md:gap-12">
           <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
             {items.map((i) => (
               <a
@@ -95,7 +98,7 @@ export function SiteHeader({ name, items }: { name: string; items: NavItem[] }) 
               </a>
             ))}
           </nav>
-
+          <ThemeToggle />
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -117,6 +120,7 @@ export function SiteHeader({ name, items }: { name: string; items: NavItem[] }) 
               }`}
             />
           </button>
+          </div>
         </div>
       </header>
 

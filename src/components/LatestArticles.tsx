@@ -50,9 +50,9 @@ export function LatestArticles({
             {articles.map((a) => (
               <article
                 key={a.url}
-                className="flex h-full flex-col rounded-2xl border border-black/10 bg-white p-6 shadow-sm dark:border-white/15 dark:bg-white/5"
+                className="group flex h-full flex-col rounded-2xl border border-black/10 bg-white p-6 transition-colors hover:border-accent dark:border-white/15 dark:bg-white/5"
               >
-                <h3 className="text-base font-semibold leading-6 tracking-tight">
+                <h3 className="text-base font-semibold leading-6 tracking-tight transition-colors group-hover:text-accent">
                   {a.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
@@ -77,7 +77,7 @@ export function LatestArticles({
             href={mediumProfileUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between gap-6 rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:bg-zinc-50 dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10"
+            className="group flex items-center justify-between gap-6 rounded-2xl border border-black/10 bg-white p-6 transition-colors hover:border-accent dark:border-white/15 dark:bg-white/5"
           >
             <div className="min-w-0">
               <p className="text-xs font-semibold tracking-wide text-zinc-600 dark:text-zinc-400">

@@ -22,7 +22,7 @@ export function Section({
       <span
         aria-hidden
         data-label={title}
-        className="pointer-events-none absolute -top-4 right-0 select-none text-[24vw] font-bold uppercase leading-none tracking-tighter text-black/[0.035] before:content-[attr(data-label)] dark:text-white/[0.04] lg:text-[11rem]"
+        className="pointer-events-none absolute -top-4 right-0 select-none text-[15vw] font-bold uppercase leading-none tracking-tighter text-black/[0.035] before:content-[attr(data-label)] dark:text-white/[0.04] lg:text-[11rem]"
       />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-12">
         <div className="grid gap-8 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16">

@@ -17,9 +17,14 @@ export function HeroBackground() {
       if (!canvas || !ctx) return;
 
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const accent =
+      const readAccent = () =>
         getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() ||
         "#0d9488";
+      let accent = readAccent();
+      const onTheme = () => {
+        accent = readAccent();
+      };
+      window.addEventListener("themechange", onTheme);
       let w = 0;
       let h = 0;
       let particles: P[] = [];
@@ -131,6 +136,7 @@ export function HeroBackground() {
         io.disconnect();
         ro.disconnect();
         document.removeEventListener("visibilitychange", onVisibility);
+        window.removeEventListener("themechange", onTheme);
         window.removeEventListener("pointermove", onMove);
         window.removeEventListener("pointerleave", onLeave);
       };

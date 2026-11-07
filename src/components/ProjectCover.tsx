@@ -33,9 +33,15 @@ export function ProjectCover({ seed, index }: { seed: string; index: number }) {
     if (!canvas || !host || !ctx) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const cs = getComputedStyle(document.documentElement);
-    const accent = cs.getPropertyValue("--accent").trim() || "#0d9488";
-    const ink = cs.getPropertyValue("--ink").trim() || "#09090b";
+    let accent = "#0d9488";
+    let ink = "#09090b";
+    const readColors = () => {
+      const cs = getComputedStyle(document.documentElement);
+      accent = cs.getPropertyValue("--accent").trim() || "#0d9488";
+      ink = cs.getPropertyValue("--ink").trim() || "#09090b";
+    };
+    readColors();
+    window.addEventListener("themechange", readColors);
 
     let w = 0;
     let h = 0;
@@ -171,6 +177,7 @@ export function ProjectCover({ seed, index }: { seed: string; index: number }) {
       stop();
       io.disconnect();
       ro.disconnect();
+      window.removeEventListener("themechange", readColors);
       card.removeEventListener("pointermove", onMove as EventListener);
       card.removeEventListener("pointerleave", onLeave);
     };

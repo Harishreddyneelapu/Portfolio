@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Theme is driven by data-theme on <html> (set before paint by an inline script). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
   --accent: #0d9488;
   --on-accent: #09090b;
@@ -40,25 +43,28 @@
   --color-ring: var(--ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --accent: #2dd4bf;
-    --on-accent: #09090b;
-    --ink: #fafafa;
-    --primary: #fafafa;
-    --primary-foreground: #18181b;
-    --secondary: #27272a;
-    --secondary-foreground: #fafafa;
-    --destructive: #f87171;
-    --input: rgba(255, 255, 255, 0.15);
-    --ring: #71717a;
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --muted: #121212;
-    --muted-foreground: #a1a1aa;
-    --card: #0f0f10;
-    --border: rgba(255, 255, 255, 0.14);
-  }
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --accent: #2dd4bf;
+  --on-accent: #09090b;
+  --ink: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #18181b;
+  --secondary: #27272a;
+  --secondary-foreground: #fafafa;
+  --destructive: #f87171;
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #71717a;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #121212;
+  --muted-foreground: #a1a1aa;
+  --card: #0f0f10;
+  --border: rgba(255, 255, 255, 0.14);
 }
 
 body {

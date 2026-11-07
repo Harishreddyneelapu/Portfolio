@@ -171,7 +171,7 @@ export const profile = {
     "Lighthouse performance metrics (Google Developers program)",
     "Adobe Workfront Fusion training",
     "AI for All (NVIDIA Academy)",
-    "Full-stack development training; hands-on backend development",
+    "Adobe Experience Manager (AEM) and Edge Delivery Services (EDS)",
   ],
   latestArticles: [
     {
