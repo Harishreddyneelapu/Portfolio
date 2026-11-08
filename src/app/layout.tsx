@@ -56,7 +56,7 @@ export default function RootLayout({
           }}
         />
         <noscript>
-          <style>{`[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
+          <style>{`.reveal,.reveal-group>*{opacity:1!important;transform:none!important}`}</style>
         </noscript>
       </head>
       <body

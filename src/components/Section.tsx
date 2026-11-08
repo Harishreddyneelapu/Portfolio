@@ -5,11 +5,15 @@ export function Section({
   id,
   index,
   title,
+  hideTitle,
+  compact,
   children,
 }: {
   id?: string;
   index?: number;
   title: string;
+  hideTitle?: boolean;
+  compact?: boolean;
   children: React.ReactNode;
 }) {
   const num = index === undefined ? null : String(index).padStart(2, "0");
@@ -17,7 +21,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={id ? `${id}-heading` : undefined}
-      className="relative scroll-mt-20 overflow-hidden border-t border-black/10 py-16 dark:border-white/10 sm:py-24"
+      className={`relative scroll-mt-20 overflow-hidden border-t border-black/10 py-16 dark:border-white/10 ${compact ? "sm:py-20" : "sm:py-24"}`}
     >
       <span
         aria-hidden
@@ -25,8 +29,10 @@ export function Section({
         className="pointer-events-none absolute -top-4 right-0 select-none text-[15vw] font-bold uppercase leading-none tracking-tighter text-black/[0.035] before:content-[attr(data-label)] dark:text-white/[0.04] lg:text-[11rem]"
       />
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-12">
-        <div className="grid gap-8 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16">
-          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+        <div
+          className={`grid gap-8 ${hideTitle ? "" : "lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-16"}`}
+        >
+          <Reveal className={hideTitle ? "sr-only" : "lg:sticky lg:top-28 lg:self-start"}>
             <h2
               id={id ? `${id}-heading` : undefined}
               className="flex items-baseline gap-3 lg:flex-col lg:items-start lg:gap-3"

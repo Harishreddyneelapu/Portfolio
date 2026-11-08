@@ -1,70 +1,66 @@
 "use client";
 
 import * as React from "react";
-import { LazyMotion, MotionConfig } from "motion/react";
-import * as m from "motion/react-m";
 
-// domAnimation is loaded after first paint, keeping it off the critical path.
-const loadFeatures = () => import("motion/react").then((mod) => mod.domAnimation);
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-export function MotionProvider({ children }: { children: React.ReactNode }) {
-  return (
-    <LazyMotion features={loadFeatures} strict>
-      <MotionConfig reducedMotion="user">{children}</MotionConfig>
-    </LazyMotion>
-  );
+// Scroll-reveal without an animation library: the element starts hidden via CSS
+// (.reveal / .reveal-group), and an IntersectionObserver adds `.is-in` once it is
+// on screen. Keeps ~100KB of JS off the page.
+function useInView<T extends HTMLElement>(threshold: number) {
+  const ref = React.useRef<T>(null);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      el.classList.add("is-in");
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        el.classList.add("is-in");
+        io.disconnect();
+      },
+      { threshold },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return ref;
 }
 
 export function Reveal({
   children,
   delay = 0,
-  className,
+  className = "",
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
 }) {
+  const ref = useInView<HTMLDivElement>(0.15);
   return (
-    <m.div
-      className={className}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.6, ease, delay }}
+    <div
+      ref={ref}
+      className={`reveal ${className}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </m.div>
+    </div>
   );
 }
 
-const group = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease } },
-};
-
 export function Stagger({
   children,
-  className,
+  className = "",
 }: {
   children: React.ReactNode;
   className?: string;
 }) {
+  const ref = useInView<HTMLDivElement>(0.1);
   return (
-    <m.div
-      className={className}
-      variants={group}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.1 }}
-    >
+    <div ref={ref} className={`reveal-group ${className}`}>
       {children}
-    </m.div>
+    </div>
   );
 }
 
@@ -75,9 +71,5 @@ export function StaggerItem({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <m.div className={className} variants={item}>
-      {children}
-    </m.div>
-  );
+  return <div className={className}>{children}</div>;
 }
