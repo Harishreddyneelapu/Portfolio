@@ -41,10 +41,10 @@ export const profile = {
   summary:
     "Software Engineer specializing in modern frontend ecosystems (React, Next.js, TypeScript) and AI-assisted application development. Transitioned from an engineering background to building high-performance, accessible web applications and RAG pipelines. Proven track record of delivering scalable enterprise features, from secure healthcare platforms to AI-powered collaboration tools.",
   stats: [
-    { value: 100, suffix: "K+", label: "Families served on Pacify" },
-    { value: 60, suffix: "+", label: "Routes in the Voltron platform" },
-    { value: 65, suffix: "+", label: "Optimizely CMS blocks delivered" },
-    { value: 85, suffix: "", label: "Components made WCAG-aligned" },
+    { value: 2, suffix: "+", label: "Years in engineering" },
+    { value: 23, suffix: "", label: "Technologies in my toolkit" },
+    { value: 30, suffix: "%", label: "Lower code complexity" },
+    { value: 7, suffix: "+", label: "Articles published on Medium" },
   ],
   skills: {
     languagesAndFrameworks: [
