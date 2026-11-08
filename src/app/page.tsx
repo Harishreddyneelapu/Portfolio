@@ -226,7 +226,7 @@ export default function Home() {
             </ul>
           </Section>
 
-          <Section id="contact" index={8} title="Contact">
+          <Section id="contact" title="Contact">
             <p className="max-w-xl text-zinc-600 dark:text-zinc-400">
               Send a short note about the role or project and your timeline.
               I’ll reply as soon as I can.

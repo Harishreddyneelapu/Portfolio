@@ -8,11 +8,11 @@ export function Section({
   children,
 }: {
   id?: string;
-  index: number;
+  index?: number;
   title: string;
   children: React.ReactNode;
 }) {
-  const num = String(index).padStart(2, "0");
+  const num = index === undefined ? null : String(index).padStart(2, "0");
   return (
     <section
       id={id}
@@ -31,11 +31,13 @@ export function Section({
               id={id ? `${id}-heading` : undefined}
               className="flex items-baseline gap-3 lg:flex-col lg:items-start lg:gap-3"
             >
-              <span
-                aria-hidden
-                data-num={num}
-                className="text-4xl font-semibold leading-none text-black/15 before:content-[attr(data-num)] dark:text-white/15 lg:text-6xl"
-              />
+              {num && (
+                <span
+                  aria-hidden
+                  data-num={num}
+                  className="text-4xl font-semibold leading-none text-black/15 before:content-[attr(data-num)] dark:text-white/15 lg:text-6xl"
+                />
+              )}
               <span className="font-mono text-xs uppercase tracking-[0.25em] text-zinc-600 dark:text-zinc-400">
                 {title}
               </span>
