@@ -110,13 +110,13 @@ export function SiteHeader({ name, items }: { name: string; items: NavItem[] }) 
             <span
               aria-hidden
               className={`absolute h-0.5 w-6 rounded-full bg-current transition-transform duration-300 ${
-                open ? "rotate-45" : "-translate-y-[5px]"
+                open ? "rotate-45" : "-translate-y-1.25"
               }`}
             />
             <span
               aria-hidden
               className={`absolute h-0.5 w-6 rounded-full bg-current transition-transform duration-300 ${
-                open ? "-rotate-45" : "translate-y-[5px]"
+                open ? "-rotate-45" : "translate-y-1.25"
               }`}
             />
           </button>

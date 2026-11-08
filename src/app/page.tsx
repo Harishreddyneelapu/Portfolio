@@ -257,7 +257,7 @@ export default function Home() {
               <dt className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">Email</dt>
               <dd className="mt-1.5">
                 <a
-                  className="[overflow-wrap:anywhere] hover:text-accent"
+                  className="wrap-anywhere hover:text-accent"
                   href={`mailto:${profile.email}?subject=Opportunity`}
                 >
                   {profile.email}
