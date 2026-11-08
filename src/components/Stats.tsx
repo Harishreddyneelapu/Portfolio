@@ -47,7 +47,7 @@ export function Stats({ stats }: { stats: Stat[] }) {
   return (
     <section aria-label="By the numbers" className="border-t border-black/10 dark:border-white/10">
       <div className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8 sm:py-20 lg:px-12">
-        <Stagger className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+        <Stagger className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-5">
           {stats.map((s) => (
             <StaggerItem key={s.label}>
               <div className="text-5xl font-semibold tracking-tight text-accent tabular-nums sm:text-6xl">
