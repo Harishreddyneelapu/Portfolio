@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/app/globals.css"
+        ],
+        "createdAt": "2026-11-09T06:31:33.195Z",
+        "reason": "Hero cursor-spotlight on the name: pointer-driven interactive reveal, existing approved design (assistant judgment, not user-confirmed)"
+      }
+    ]
+  }
+}

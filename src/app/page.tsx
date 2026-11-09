@@ -22,6 +22,14 @@ export default function Home() {
       {
         "@type": "Person",
         name: profile.name,
+        alternateName: [
+          "Harish Neelapu",
+          "Harish Reddy",
+          "Harish Reddy N",
+          "Neelapu Harish",
+          "Neelapu Harish Reddy",
+        ],
+        url: siteUrl || undefined,
         jobTitle: profile.title,
         email: `mailto:${profile.email}`,
         telephone: profile.phone,
@@ -34,6 +42,13 @@ export default function Home() {
       {
         "@type": "WebSite",
         name: `${profile.name} | Portfolio`,
+        alternateName: [
+          profile.name,
+          "Harish Neelapu",
+          "Neelapu Harish",
+          "Neelapu Harish Reddy",
+          "Harish Reddy Neelapu Portfolio",
+        ],
         url: siteUrl || undefined,
       },
     ],
